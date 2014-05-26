@@ -11,17 +11,17 @@ echo '...done'
 
 
 echo '--- Installing git ---'
-yum install -y git
-echo '...done'
-
-
-echo '--- Installing MySQL and PHP5 ---'
-apt-get install mysql-server php5 php5-cli
+apt-get install -y git
 echo '...done'
 
 
 echo '--- Installing apache2 ---'
 apt-get install -y apache2
+echo '...done'
+
+
+echo '--- Installing MySQL and PHP5 ---'
+apt-get install mysql-server php5 php5-cli libapache2-mod-php5
 echo '...done'
 
 
@@ -65,12 +65,12 @@ NameVirtualHost *:80
 
 #mashtag
 <VirtualHost *:80>
-    ServerName mashtag
+    ServerName mashtag.local
     DocumentRoot /var/www/mashtag/public
     RewriteOptions inherit
 
-    ErrorLog logs/mashtag-error_log
-    CustomLog logs/mashtag-access_log
+    ErrorLog /var/log/apache2/mashtag-error_log
+    CustomLog /var/log/apache2/mashtag-access_log combined
 </VirtualHost>
 EOF
 )
