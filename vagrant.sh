@@ -4,6 +4,7 @@ echo '--- Update repositories with apt ---'
 apt-get update
 echo '...done'
 
+
 echo '--- Installing gcc screen vim unzip curl wget man ---'
 apt-get install -y build-essential screen vim nano unzip curl wget man
 echo '...done'
@@ -19,15 +20,17 @@ apt-get install mysql-server php5 php5-cli
 echo '...done'
 
 
+echo '--- Installing apache2 ---'
+apt-get install -y apache2
+echo '...done'
+
+
 echo '--- Installing php-pear ---'
 apt-get install -y php-pear
 pear channel-discover pear.phpunit.de
 pear channel-discover pear.symfony-project.com
 echo '...done'
 
-echo '--- Installing apache2 ---'
-apt-get install -y apache2
-echo '...done'
 
 echo '--- Installing PHPUnit ---'
 pear install -a phpunit/PHPUnit
@@ -49,10 +52,12 @@ echo '--- Installing OpenSSL ---'
 apt-get install -y openssl
 echo '...done'
 
+
 echo '--- Activating mod_rewrite and mod_ssl ---'
 a2enmod rewrite
 a2enmod ssl
 echo '...done'
+
 
 echo '--- Creating vHost ---'
 VHOST=$(cat <<EOF
@@ -72,6 +77,7 @@ EOF
 echo "${VHOST}" > /etc/apache2/sites-available/default
 echo '...done'
 
-echo '--- Restartig Apache ---'
+
+echo '--- Restarting Apache ---'
 service apache2 restart
 echo '...done'
