@@ -10,7 +10,7 @@ echo '...done'
 
 
 echo '--- Installing git ---'
-yum install -y git
+apt-get install -y git
 echo '...done'
 
 
@@ -55,6 +55,8 @@ a2enmod ssl
 echo '...done'
 
 echo '--- Creating vHost ---'
+mkdir -p /var/www/mashtag/{public_html,logs}
+
 VHOST=$(cat <<EOF
 NameVirtualHost *:80
 
@@ -64,8 +66,8 @@ NameVirtualHost *:80
     DocumentRoot /var/www/mashtag/public
     RewriteOptions inherit
 
-    ErrorLog logs/mashtag-error_log
-    CustomLog logs/mashtag-access_log
+    ErrorLog /var/www/mashtag/logs/error.log
+    CustomLog /var/www/mashtag/logs/access.log
 </VirtualHost>
 EOF
 )
@@ -75,3 +77,4 @@ echo '...done'
 echo '--- Restartig Apache ---'
 service apache2 restart
 echo '...done'
+
