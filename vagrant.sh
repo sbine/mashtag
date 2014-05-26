@@ -79,6 +79,8 @@ EOF
 echo "${VHOST}" > /etc/apache2/sites-available/default
 echo '...done'
 
+sed -i 's/www-data/vagrant/' /etc/apache2/envvars
+chown vagrant: /var/lock/apache2
 
 echo '--- Restarting Apache ---'
 service apache2 restart
