@@ -60,6 +60,8 @@ echo '...done'
 
 
 echo '--- Creating vHost ---'
+mkdir -p /var/www/mashtag/{public_html,logs}
+
 VHOST=$(cat <<EOF
 NameVirtualHost *:80
 
@@ -81,3 +83,4 @@ echo '...done'
 echo '--- Restarting Apache ---'
 service apache2 restart
 echo '...done'
+
