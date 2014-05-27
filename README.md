@@ -1,7 +1,7 @@
 Mashtag
 ==========
 
-For when a hashtag just isn't enough.
+For when a single hashtag just isn't enough.
 
 ### License
 

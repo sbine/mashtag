@@ -1,6 +1,6 @@
 <?php
 
-
+use Mashtag\API\StackExchange\StackExchangeApiRepository;
 
 class HomeController extends BaseController {
 
@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
-	public function __construct(Mashtag\API\StackExchange\StackExchangeApiRepository $stackExchange) {
+	public function __construct(StackExchangeApiRepository $stackExchange) {
 		$this->stackExchange = $stackExchange;
 	}
 
