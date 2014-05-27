@@ -18,4 +18,11 @@
 		<?php echo var_dump($googleplus) ?>
 	</pre>
 </div>
+
+<div>
+	<p>Sample GitHub response:</p>
+	<pre>
+		<?php echo var_dump($github) ?>
+	</pre>
+</div>
 @stop

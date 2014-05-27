@@ -33,7 +33,7 @@ abstract class GooglePlusApiConnector {
 
 		$response = $client->$method()->send();
 
-		# Decompress gzip response
+		# Return response
 		return $response->getBody(true);
 	}
 
