@@ -11,4 +11,11 @@
 		<?php echo var_dump($stackoverflow) ?>
 	</pre>
 </div>
+
+<div>
+	<p>Sample Google+ response:</p>
+	<pre>
+		<?php echo var_dump($googleplus) ?>
+	</pre>
+</div>
 @stop
