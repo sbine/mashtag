@@ -4,7 +4,7 @@ use \Guzzle\Http\Client as Client;
 
 abstract class StackExchangeApiConnector {
 
-	protected static $baseUrl = "http://api.stackexchange.com";
+	protected static $baseUrl = "https://api.stackexchange.com";
 	protected static $apiVersion = "2.2";
 
 	public function __construct() {
