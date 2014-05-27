@@ -25,18 +25,6 @@ apt-get install -y php5 php5-cli php5-mcrypt libapache2-mod-php5 php5-curl
 echo '...done'
 
 
-echo '--- Installing php-pear ---'
-apt-get install -y php-pear
-pear channel-discover pear.phpunit.de
-pear channel-discover pear.symfony-project.com
-echo '...done'
-
-
-echo '--- Installing PHPUnit ---'
-pear install -a phpunit/PHPUnit
-echo '...done'
-
-
 echo '--- Installing composer ---'
 if [[ ! -f /usr/local/bin/composer ]]; then
     curl -s https://getcomposer.org/installer | php
