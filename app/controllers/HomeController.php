@@ -1,5 +1,7 @@
 <?php
 
+
+
 class HomeController extends BaseController {
 
 	/*
@@ -20,8 +22,13 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function __construct(Mashtag\API\StackExchange\StackExchangeApiRepository $stackExchange) {
+		$this->stackExchange = $stackExchange;
+	}
+
 	public function index() {
-		$this->layout->content = View::make('index');
+		$stackOverflow = $this->stackExchange->getQuestionsByTag("laravel");
+		$this->layout->content = View::make('index')->with('stackoverflow', $stackOverflow);
 	}
 
 }

@@ -4,7 +4,8 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+		"guzzlehttp/guzzle": "3.8.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -14,7 +15,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"psr-0": {
+			"Mashtag": "app"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

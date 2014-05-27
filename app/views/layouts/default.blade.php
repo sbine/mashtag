@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+<link rel="icon" type="image/png" href="favicon.png" />
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="padding-top: 70px;">
