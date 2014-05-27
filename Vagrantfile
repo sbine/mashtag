@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network "public_network"
   # config.ssh.forward_agent = true
 
-  config.vm.synced_folder "~/Sites/mashtag", "/var/www/mashtag"
+  config.vm.synced_folder "~/Sites/mashtag", "/var/www/mashtag", :mount_options => ["dmode=777","fmode=666"]
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = "Mashtag"
