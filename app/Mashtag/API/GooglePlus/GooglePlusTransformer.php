@@ -14,10 +14,10 @@ class GooglePlusTransformer implements TransformerInterface {
 	public function transformItem($item) {
 		return array(
 			"title" => $item['title'],
-			"date" => $item['published'],
+			"date" => strtotime($item['published']),
 			"url" => $item['url'],
 			"user" => $item['actor']['displayName'],
-			"origin" => "Google+"
+			"origin" => "GooglePlus"
 		);
 	}
 

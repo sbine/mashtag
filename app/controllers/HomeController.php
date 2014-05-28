@@ -19,10 +19,16 @@ class HomeController extends BaseController {
 		$googlePlus = $this->googlePlus->getActivityForTag($tag);
 		$gitHub = $this->gitHub->getActivityForTag($tag);
 
+		$tagResults = array_merge($stackOverflow, $googlePlus);
+		$tagResults = array_merge($tagResults, $gitHub);
+
+		usort($tagResults, function($a, $b) {
+			return $a['date'] < $b['date'];
+		});
+
 		$this->layout->content = View::make('index')
-									->with('stackoverflow', $stackOverflow)
-									->with('googleplus', $googlePlus)
-									->with('github', $gitHub);
+									->with('tag', $tag)
+									->with('tagResults', $tagResults);
 
 
 	}

@@ -13,7 +13,7 @@ class GitHubTransformer implements TransformerInterface {
 	public function transformItem($item) {
 		return array(
 			"title" => $item['title'],
-			"date" => $item['created_at'],
+			"date" => strtotime($item['created_at']),
 			"url" => $item['html_url'],
 			"user" => $item['user']['login'],
 			"origin" => "GitHub"
