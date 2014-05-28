@@ -8,21 +8,21 @@
 <div>
 	<p>Sample StackOverflow response:</p>
 	<pre>
-		<?php echo var_dump($stackoverflow) ?>
+		<?php var_dump($stackoverflow) ?>
 	</pre>
 </div>
 
 <div>
 	<p>Sample Google+ response:</p>
 	<pre>
-		<?php echo var_dump($googleplus) ?>
+		<?php var_dump($googleplus) ?>
 	</pre>
 </div>
 
 <div>
 	<p>Sample GitHub response:</p>
 	<pre>
-		<?php echo var_dump($github) ?>
+		<?php var_dump($github) ?>
 	</pre>
 </div>
 @stop
