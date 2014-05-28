@@ -1,8 +1,8 @@
 <?php namespace Mashtag\API\StackExchange;
 
-use Mashtag\API\TransformerInterface;
+use Mashtag\API\TransformerAbstract;
 
-class StackExchangeTransformer implements TransformerInterface {
+class StackExchangeTransformer extends TransformerAbstract {
 
 
 	/**
@@ -19,27 +19,6 @@ class StackExchangeTransformer implements TransformerInterface {
 			"user" => $item['owner']['display_name'],
 			"origin" => "StackExchange"
 		);
-	}
-
-	/**
-	 * Transform a collection of items
-	 * @param array $collection 
-	 * @return array
-	 */
-
-	public function transformCollection($collection) {
-
-		if (!is_array($collection)) {
-			throw new Exception("Input data must be an array");
-		}
-
-		$items = array();
-
-		foreach ($collection as $item) {
-			$items[] = $this->transformItem($item);
-		}
-
-		return $items;
 	}
 
 }

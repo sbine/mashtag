@@ -1,8 +1,8 @@
 <?php namespace Mashtag\API\GitHub;
 
-use Mashtag\API\TransformerInterface;
+use Mashtag\API\TransformerAbstract;
 
-class GitHubTransformer implements TransformerInterface {
+class GitHubTransformer extends TransformerAbstract {
 
 	/**
 	 * Transform an item into a standardized data format
@@ -18,27 +18,6 @@ class GitHubTransformer implements TransformerInterface {
 			"user" => $item['user']['login'],
 			"origin" => "GitHub"
 		);
-	}
-
-	/**
-	 * Transform a collection of items
-	 * @param array $collection 
-	 * @return array
-	 */
-
-	public function transformCollection($collection) {
-
-		if (!is_array($collection)) {
-			throw new Exception("Input data must be an array");
-		}
-
-		$items = array();
-
-		foreach ($collection as $item) {
-			$items[] = $this->transformItem($item);
-		}
-
-		return $items;
 	}
 
 }

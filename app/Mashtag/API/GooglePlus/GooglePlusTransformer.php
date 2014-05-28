@@ -1,8 +1,8 @@
 <?php namespace Mashtag\API\GooglePlus;
 
-use Mashtag\API\TransformerInterface;
+use Mashtag\API\TransformerAbstract;
 
-class GooglePlusTransformer implements TransformerInterface {
+class GooglePlusTransformer extends TransformerAbstract {
 
 
 	/**
@@ -19,27 +19,6 @@ class GooglePlusTransformer implements TransformerInterface {
 			"user" => $item['actor']['displayName'],
 			"origin" => "GooglePlus"
 		);
-	}
-
-	/**
-	 * Transform a collection of items
-	 * @param array $collection 
-	 * @return array
-	 */
-
-	public function transformCollection($collection) {
-
-		if (!is_array($collection)) {
-			throw new Exception("Input data must be an array");
-		}
-
-		$items = array();
-
-		foreach ($collection as $item) {
-			$items[] = $this->transformItem($item);
-		}
-
-		return $items;
 	}
 
 }

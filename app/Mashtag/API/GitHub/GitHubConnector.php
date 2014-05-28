@@ -7,7 +7,7 @@ use Guzzle\Http\Client;
 class GitHubConnector implements ApiConnectorInterface {
 
 	protected static $baseUrl = "https://api.github.com";
-	protected static $apiVersion = "";
+	protected static $apiVersion = "v3";
 	protected $key;
 
 
@@ -34,6 +34,8 @@ class GitHubConnector implements ApiConnectorInterface {
 	public function doRequest($method, $queryString) {
 		$url = self::$baseUrl . "/" . $queryString;
 		$client = new Client($url);
+
+		$client->setDefaultOption('headers/Accept', 'application/vnd.github.' . self::$apiVersion . '+json');
 
 		$response = $client->$method()->send();
 
