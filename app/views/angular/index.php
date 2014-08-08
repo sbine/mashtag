@@ -12,28 +12,37 @@
 		</nav>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-12" ng-controller="index">
+				<div class="col-md-12" ng-controller="index">
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label class="control-label col-sm-2 col-sm-offset-2">Search for a tag:</label>
-							<div class="col-sm-5">
+							<label class="control-label col-md-2 col-md-offset-2">Search for a tag:</label>
+							<div class="col-md-5">
 								<input type="text" class="form-control" ng-model="tag">
 							</div>
 						</div>
-					</form>
-					<div class="col-sm-8 col-sm-offset-2">
-						<span class="label label-info">{{ tag }}</span>
 
-						<table class="table">
-							<tr ng-repeat="result in results | filter: tag">
-								<td><img src="/img/{{ result.origin | lowercase }}.png"></td>
-								<td>{{ result.date * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' }}</td>
-								<td><a href="{{ result.url }}" target="_blank">{{ result.title }}</a></td>
-								<td>{{ result.user }}</td>
-								<td>{{ result.origin }}</td>
-							</tr>
-						</table>
-					</div>
+						<br>
+					
+						<div class="col-md-8 col-md-offset-2">
+							<span class="label label-info">{{ tag }}</span>
+
+							<div class="form-group">
+								<div class="col-md-5 col-md-offset-7">
+									<input type="text" class="form-control" placeholder="Filter..." ng-model="filter">
+								</div>
+							</div>
+
+							<table class="table">
+								<tr ng-repeat="result in results | filter: filter">
+									<td><img src="/img/{{ result.origin | lowercase }}.png"></td>
+									<td>{{ result.date * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' }}</td>
+									<td><a href="{{ result.url }}" target="_blank">{{ result.title }}</a></td>
+									<td>{{ result.user }}</td>
+									<td>{{ result.origin }}</td>
+								</tr>
+							</table>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
