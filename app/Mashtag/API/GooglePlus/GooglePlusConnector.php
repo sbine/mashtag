@@ -3,6 +3,7 @@
 use Mashtag\API\ApiConnectorInterface;
 use Mashtag\API\GooglePlus\GooglePlusTransformer;
 use Guzzle\Http\Client;
+use Exception;
 
 class GooglePlusConnector implements ApiConnectorInterface {
 
@@ -19,6 +20,9 @@ class GooglePlusConnector implements ApiConnectorInterface {
 	protected function getKey() {
 		if (!$this->key) {
 			$this->key = getenv('GOOGLE_PLUS_KEY');
+		}
+		if (empty($this->key)) {
+			throw new Exception("Unable to locate API key [env.local.php]");
 		}
 		return $this->key;
 	}
