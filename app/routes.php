@@ -12,3 +12,5 @@
 */
 
 Route::get('/', array('uses' => 'HomeController@index'));
+
+Route::get('/get_results', array('uses' => 'MashtagController@get_results'));
