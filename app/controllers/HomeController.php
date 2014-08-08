@@ -33,4 +33,8 @@ class HomeController extends BaseController {
 
 	}
 
+	public function home_angular() {
+		return View::make('angular/index');
+	}
+
 }
